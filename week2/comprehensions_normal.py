@@ -55,7 +55,7 @@ def grade_avg(gradebook):
 
 
 
-
+#Joel Taddei
 class DayOfWeek(Enum):
     Sunday = 0
     Monday = 1
