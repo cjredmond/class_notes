@@ -7,7 +7,10 @@
 def add_item_to_inventory(player):
     item_name = input("What is the item name? ")
     item_quantity = int(input("How many? "))
-    player["inventory"][item_name] = {"quantity": item_quantity}
+    if item_name in player["inventory"].keys():
+        player["inventory"][item_name]["quantity"] += item_quantity
+    else:
+        player["inventory"][item_name] = {"quantity": item_quantity}
 
 def inspect_inventory(player):
     for item in player["inventory"].keys():
