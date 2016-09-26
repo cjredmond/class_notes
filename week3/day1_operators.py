@@ -16,4 +16,3 @@ s_number_1 = SuperNumber(1)
 s_number_2 = SuperNumber("Connor")
 x = s_number_1 + s_number_2 + s_number_1
 print(x)
-#
