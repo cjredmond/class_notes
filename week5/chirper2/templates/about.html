@@ -2,6 +2,17 @@
 
 {% block content %}
 <h1>About Me</h1>
+<form class="" action="" method="post">
+  {% csrf_token %}
+  <input type="text" name="message" value="" placeholder="type message here">
+  <select class="" name="voice">
+    <option value="fred">fred</option>
+    <option value="agnes">agnes</option>
+
+  </select>
+  <input type="submit" value="SAY IT">
+</form>
+
 {% endblock %}
 
 {% block footer %}
