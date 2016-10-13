@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+
+
 {% block content %}
-hi
+{% for chirp in all_chirps%}
+<div class="panel panel-default">
+  <div class="panel-body">
+      {{ chirp.body }}
+  </div>
+</div>
+{% endfor %}
 {% endblock %}
