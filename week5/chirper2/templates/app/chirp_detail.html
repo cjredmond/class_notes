@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+| <a href="{% url 'chirp_view' %}">⬅ Back to all chirps</a>
+<h1> {{object.body}} </h1>
+<h4> Created {{object.created|timesince}} ago</h4>
+<a href="{% url 'chirp_update_view' object.id %}">Update Me</a>
+{% endblock %}
