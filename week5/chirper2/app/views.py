@@ -2,7 +2,7 @@ from django.shortcuts import render
 from app.models import Chirp
 from app.forms import ChirpForm
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 def index_view(request):
     if request.POST:
         instance = ChirpForm(request.POST)
@@ -24,12 +24,7 @@ def about_view(request):
     print(message,voice)
     return render(request, "about.html")
 
-class ChirpView(TemplateView):
+class ChirpView(ListView):
     template_name = "chirps.html"
 
-    def get_context_data(self):
-        context = {
-        "all_chirps" : Chirp.objects.all(),
-
-        }
-        return context
+    model = Chirp
