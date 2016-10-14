@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
 from django.contrib import admin
 from app.views import index_view, about_view, ChirpView, ChirpDetailView, \
-                      ChirpCreateView, ChirpUpdateView
+                      ChirpCreateView, ChirpUpdateView, UserCreateView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^chirps/(?P<pk>\d+)/$', ChirpDetailView.as_view(), name="chirp_detail_view"),
     url(r'^chirps/(?P<pk>\d+)/update/$', ChirpUpdateView.as_view(), name="chirp_update_view"),
     url(r'^about/$', about_view, name="about_view"),
+    url(r'^create_user/$', UserCreateView.as_view(), name="user_create_view")
 
 ]
