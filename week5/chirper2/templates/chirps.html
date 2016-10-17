@@ -5,9 +5,22 @@
 {% for chirp in object_list %}
 <div class="panel panel-default">
   <div class="panel-body">
+    <h1>{{chirp.score }}</h1>
     <a href="{% url 'chirp_detail_view' chirp.id %}">{{ chirp.body}}</a>
 <p>
   {{chirp.user}}
+</p>
+<p>
+  <form class="" action="{% url 'chirp_upvote_view' chirp.id %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="value" value="true">
+    <input type="submit" name="" value="+">
+
+  <form class="" action="{% url 'chirp_downvote_view' chirp.id %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="value" value="false">
+    <input type="submit" name="" value="-">
+  </form>
 </p>
   </div>
 </div>
