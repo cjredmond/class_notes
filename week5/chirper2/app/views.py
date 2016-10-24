@@ -25,7 +25,7 @@ class ChirpDetailView(DetailView):
 
 class ChirpCreateView(CreateView):
     model = Chirp
-    success_url = "/chirps"
+    success_url = "/"
     fields = ('body',)
 
     def form_valid(self, form):
@@ -35,7 +35,7 @@ class ChirpCreateView(CreateView):
 
 class ChirpUpdateView(UpdateView):
     model = Chirp
-    success_url = "/chirps"
+    success_url = "/"
     fields = ('body',)
 
 
@@ -43,7 +43,7 @@ class ChirpUpdateView(UpdateView):
 class UserCreateView(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = "/chirps" #show reverse_lazy
+    success_url = "/" #show reverse_lazy
 
 class ChirpVoteView(CreateView):
     model = Vote

@@ -2,27 +2,63 @@
 
 
 {% block content %}
+<div class="row">
+  <div class="col-md-8">
+
 {% for chirp in object_list %}
 <div class="panel panel-default">
-  <div class="panel-body">
-    <h1>{{chirp.score }}</h1>
-    <a href="{% url 'chirp_detail_view' chirp.id %}">{{ chirp.body}}</a>
-<p>
-  {{chirp.user}}
-</p>
-<p>
-  <form class="" action="{% url 'chirp_upvote_view' chirp.id %}" method="post">
-    {% csrf_token %}
-    <input type="hidden" name="value" value="true">
-    <input type="submit" name="" value="+">
+  <div class="panel-heading">
+<h3 class="panel-title">{{chirp.score}}</h3>
+  </div>
 
-  <form class="" action="{% url 'chirp_downvote_view' chirp.id %}" method="post">
-    {% csrf_token %}
-    <input type="hidden" name="value" value="false">
-    <input type="submit" name="" value="-">
-  </form>
-</p>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-2">
+        <p>
+          <form class="" action="{% url 'chirp_upvote_view' chirp.id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="value" value="true">
+            <input type="submit" name="" value="+" class="btn btn-success btn-md">
+          </form>
+
+          <form class="" action="{% url 'chirp_downvote_view' chirp.id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="value" value="false">
+            <input type="submit" name="" value="-" class="btn btn-success btn-md">
+          </form>
+        </p>
+
+      </div>
+      <div class="col-md-10">
+        <a href="{% url 'chirp_detail_view' chirp.id %}"><h3>{{ chirp.body}}</h3></a>
+    <p>
+      By: {{chirp.user}}
+    </p>
+      </div>
+
+    </div>
   </div>
 </div>
+
 {% endfor %}
+</div>
+<div class="col-md-4">
+  <div class="panel">
+      <div class="panel-title">
+<h3>Create Chirp</h3>
+      </div>
+      <div class="panel-body">
+        <form class="" action="{%  url 'chirp_create_view' %}" method="post">
+            {% csrf_token %}
+          <input type="text" name="body" value="">
+          <input type="submit" name="" value="Chirp">
+        </form>
+
+      </div>
+
+
+  </div>
+
+</div>
+  </div>
 {% endblock %}
