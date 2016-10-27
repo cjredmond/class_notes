@@ -10,15 +10,17 @@ class SpecialSerializer(serializers.ModelSerializer):
         read_only = True
 
     )
-    calorie_count = serializers.IntegerField()
+    #created_by = serializers.ReadOnlyField()
+    calorie_count = serializers.ReadOnlyField()
     my_fave = serializers.SerializerMethodField()
+    user = serializers.ReadOnlyField(source='created_by.id')
 
     def get_my_fave(self, obj):
         return "Cookies"
 
     class Meta:
         model = Special
-        fields = '__all__'
+        exclude = ('created_by', )
 
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:

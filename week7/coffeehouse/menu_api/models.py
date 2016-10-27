@@ -10,6 +10,7 @@ class Special(models.Model):
     price = models.FloatField()
     description = models.CharField(max_length=100)
     ingredients = models.ManyToManyField(Ingredient)
+    created_by = models.ForeignKey('auth.User')
 
     @property
     def calorie_count(self):
