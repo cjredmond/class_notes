@@ -8,6 +8,13 @@
 <div class="">
   {{ special.description }}
 </div>
+<div class="">
+  <a href="{% url 'special_update_view' special.id %}">
+
+<img src="{{ MEDIA_URL }}{{ special.image_url }}" alt="" />
+  </a>
+
+</div>
 <hr>
 {% endfor %}
 
