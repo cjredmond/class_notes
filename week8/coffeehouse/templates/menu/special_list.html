@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Current Specials</h1>
+{% for special in object_list %}
+<div class="">
+  {{ special }}
+</div>
+<div class="">
+  {{ special.description }}
+</div>
+<hr>
+{% endfor %}
+
+{% endblock %}
