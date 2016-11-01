@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>lyrics</h1>
+    <form>
+      <input type="text" name="song_title">
+      <input type="submit" value="Search">
+    </form>
+
+    {% for song in song_urls %}
+<div class="">
+  <a href="{{ song }}">{{ song }}</a>
+</div>
+    {% endfor %}
+
+  </body>
+</html>
