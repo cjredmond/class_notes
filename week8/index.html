@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+
+
+<h1>Javascript</h1>
+<p id='packer_text'>
+  Hey guys, while I’m happy with the way the offense is playing, I can’t help but notice. We have only beaten one team with a winning record. While I am grateful for those wins it does concern me. I know you’re going to say we have lost to three of the top competitors in the NFC, but those tough games were the games we won in 2014. I know new season, new team, but if we’re going to succeed we need to be able to beat the top teams, not come up short.
+
+
+</p>
+
+<p id="clickBye">
+
+</p>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.slim.js"
+  integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+/*
+  console.log('hi');
+  //$("#packer_text").text("Packers game vs Colts.")
+  $('#packer_text').on('click', function(e) {
+    $("#packer_text").text("Packers game vs Colts.")
+  });
+*/
+
+var wordArray = ['this', 'is', 'the', 'wierdest', 'project', 'ever'];
+for (var i = 0 ; i <wordArray.length ; i++) {
+  var newElement = $('<span id=' + i + '>')
+              .text(wordArray[i] + " ")
+              .on('click', function(e) {
+                e.target.remove()
+              })
+  $('#clickBye').append(newElement)
+}
+</script>
+  </body>
+</html>

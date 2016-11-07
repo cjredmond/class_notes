@@ -8,6 +8,55 @@
     <a href="{% url 'special_create_view' %}">Create new special</a>
     {% block content %}
     {% endblock %}
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
 
+
+<script type="text/javascript">
+
+console.log($);
+$(document).ready(function(){
+  $("#refresh-button").on('click', function(e) {
+    $('.data_container').html("");
+    refreshData();
+  });
+  var refreshData = function() {
+    $.getJSON('/api/specials/', function(specials) {
+      specials.forEach(function(special){
+        var source = $('#it-works').html();
+        var template = Handlebars.compile(source);
+        var renderedTemplate = template({"special": special});
+        $('.data_container').append(renderedTemplate);
+
+  })
+})
+}
+refreshData();
+});
+  </script>
+
+
+
+{% verbatim %}
+<script type="text/x-handlebars-template" id="it-works">
+  <div class="">
+    {{ special.title }}
+  </div>
+  <div class="">
+    {{ special.description }}
+  </div>
+  <div class="">
+    <a href="">
+
+  <img src="" alt="" />
+    </a>
+
+  </div>
+
+</script>
+{% endverbatim %}
   </body>
 </html>

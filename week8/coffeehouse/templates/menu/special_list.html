@@ -1,21 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1>Current Specials</h1>
-{% for special in object_list %}
-<div class="">
-  {{ special }}
-</div>
-<div class="">
-  {{ special.description }}
-</div>
-<div class="">
-  <a href="{% url 'special_update_view' special.id %}">
 
-<img src="{{ MEDIA_URL }}{{ special.image_url }}" alt="" />
-  </a>
+<input type="button" value="refresh" id="refresh-button">
+
+<div class="data_container">
 
 </div>
-<hr>
-{% endfor %}
 
 {% endblock %}
