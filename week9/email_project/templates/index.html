@@ -1,0 +1,36 @@
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Index</title>
+
+
+  <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+  </head>
+  <body>
+    <div class="container">
+      <form class="" action="{% url 'send_email_view' %}" method="post">
+        {% csrf_token %}
+
+    <p>
+      {{ form.sender|attr:"placeholder:Who are you?"|attr:"type:email" }}
+    </p>
+
+    <p>
+      {{ form.message|add_class:"materialize-textarea"|attr:"placeholder:What would you like to say?" }}
+    </p>
+    <p>
+      {{ form.jerk }}
+      <label for="form.jerk.auto_id">{{ form.jerk.label }}</label>
+    </p>
+    <button type="submit" class="btn waves-effect waves-light"value="Contact">Contact</button>
+  </form>
+
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+</div>
+  </body>
+</html>
